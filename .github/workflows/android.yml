@@ -42,5 +42,5 @@ jobs:
           Air-Music-Android.apk
           --target "${{ github.sha }}"
           --title "Air Music Android — build ${{ github.run_number }}"
-          --notes "Air Music 1.2.0: guitarra virtual sobre a câmera, acompanhando as mãos, trastes e cordas destacados, reconhecimento da posição de palheta e botão para reposicionar. APK de teste para Android 8 ou superior. Remova a versão de teste anterior se o Android recusar a atualização por assinatura. Precisa de internet para carregar o reconhecimento das mãos. Código e instruções em android/."
+          --notes "Air Music 1.2.1: guitarra fixa após posicionar, sem deslocamento ao tocar, trocar o formato dos dedos ou perder uma mão na câmera. Reposicione somente pelo botão. APK de teste para Android 8 ou superior. Remova a versão de teste anterior se o Android recusar a atualização por assinatura. Precisa de internet para carregar o reconhecimento das mãos. Código e instruções em android/."
           --prerelease
