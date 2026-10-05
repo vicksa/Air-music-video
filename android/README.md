@@ -7,6 +7,7 @@ Aplicativo Android instalável, com a interface e os instrumentos incluídos no 
 Requisitos: Java 17 ou 21, Android SDK 35 e Build Tools 35.0.0.
 
 ```sh
+node scripts/sync-android.mjs
 cd android
 ./gradlew assembleDebug
 ```
@@ -22,3 +23,5 @@ Baixe o APK em Releases, abra no celular e permita a instalação pelo navegador
 ## Verificação no aparelho
 
 Confira permissão concedida/negada, ativação e parada da câmera, piano, guitarra com duas mãos, desafio, sensibilidade e retorno após colocar o aplicativo em segundo plano.
+
+As versões de teste usam assinatura de desenvolvimento. Se uma atualização for recusada por assinatura diferente, remova a versão anterior e instale o novo APK.

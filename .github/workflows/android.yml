@@ -2,7 +2,7 @@ name: Build Android APK
 on:
   push:
     branches: [main]
-    paths: ['android/**', '.github/workflows/android.yml']
+    paths: ['android/**', 'app.js', 'engine.js', 'index.html', 'tests/**', 'scripts/**', '.github/workflows/android.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Test gesture mapping and guitar synthesis
+        run: node --test tests/engine.test.mjs
+      - name: Sync Android app assets
+        run: node scripts/sync-android.mjs
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -38,5 +42,5 @@ jobs:
           Air-Music-Android.apk
           --target "${{ github.sha }}"
           --title "Air Music Android — build ${{ github.run_number }}"
-          --notes "APK Android instalável, assinado para desenvolvimento. Android 8 ou superior. Precisa de internet para carregar o modelo de visão. Código-fonte e instruções em android/."
+          --notes "Air Music 1.1.0: espelhamento corrigido, guia visual das mãos, palhetada guiada e novo timbre de corda dedilhada. APK de teste para Android 8 ou superior. Remova a versão de teste anterior se o Android recusar a atualização por assinatura. Precisa de internet para carregar o reconhecimento das mãos. Código e instruções em android/."
           --prerelease
